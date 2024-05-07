@@ -15,6 +15,7 @@
           <span class="error" aria-live="polite"></span>
         </div>
 
+        <!-- E-MAIL CONFIRMATION -->
         <div class="email-confirmation">
           <label for="confirm-mail">Confirm e-mail:</label>
           <input type="email" name="confirm-mail" id="confirm-mail" minlength="8" required />
@@ -42,17 +43,22 @@
 
         <!-- PASSWORD -->
         <div class="psw">
-          <label for="password">Password</label>
+          <label for="password">Password:</label>
           <input type="password" name="password" id="password" minlength="8" required />
           <span class="error" aria-live="polite"></span>
         </div>
+
+        <!-- PASSWORD CONFIRMATION -->
         <div class="psw-confirmation">
-          <label for="password-confirmation">Confirm Password</label>
+          <label for="password-confirmation">Confirm Password:</label>
           <input type="password" name="password-confirmation" id="password-confirmation" required />
           <span class="error" aria-live="polite"></span>
         </div>
       </form>
-      <button type="submit" form="js-validations-form">SUBMIT</button>
+
+      <div>
+        <button type="submit" form="js-validations-form">SUBMIT</button>
+      </div>
     </div>
   </body>
 </html>
