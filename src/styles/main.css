@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+div.container {
+    margin: auto;
+    background-color: rgb(220, 220, 220);
+}
+
+div.container form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 300px));
+    align-items: center;
+    height: 300px;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+div.container form div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* This is the style of error messages */
+.error {
+    width: 100%;
+    padding: 0;
+
+    font-size: 80%;
+    color: white;
+    background-color: rgb(0, 110, 200);
+    border-radius: 0 0 5px 5px;
+
+    box-sizing: border-box;
+}
+
+.error.active {
+    padding: 0.3em;
+}
+
+
+input:valid {
+    border: 2px solid black;
+}
+
+/* Class submitted will be added when form is submitted
+   If there's any invalid inputs, apply :invalid to it */
+form.submitted input:invalid:required {
+    border: 2px solid rgb(236, 107, 107);
+}
