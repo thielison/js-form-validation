@@ -176,6 +176,8 @@ psw.addEventListener("input", () => {
 
 // This defines what happens when the user tries to submit the data
 form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevents form being submitted to a server
+
   // Set a custom validity message on the confirmPsw field if the passwords do not match.
   // This will make form.checkValidity() to return false if the passwords do not match.
   if (psw.value !== confirmPsw.value) {
@@ -184,10 +186,21 @@ form.addEventListener("submit", (event) => {
     confirmPsw.setCustomValidity("");
   }
 
-  if (form.checkValidity()) {
-    alert("Great! Your data was submitted to the server!");
-  } else {
-    event.preventDefault();
+  // If form is not valid (returns false, validate all input fields)
+  if (!form.checkValidity()) {
     validateFormFields();
+  } else {
+    // Submit form
+    alert("Great! Your data was submitted to the server!");
+
+    form.reset(); // Clear all input fields
+    form.classList.remove("submitted"); // Remove submit class from the form
+
+    // Remove error messages from all inputs
+    const spanElements = document.querySelectorAll("span");
+    spanElements.forEach((element) => {
+      element.textContent = "";
+      element.classList.remove("error");
+    });
   }
 });
