@@ -2,6 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  performance: {
+    hints: false,
+  },
   mode: "production",
   entry: "./src/validations.js",
   devtool: "inline-source-map",
