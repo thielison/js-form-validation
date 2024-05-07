@@ -185,7 +185,7 @@ form.addEventListener("submit", (event) => {
   }
 
   if (form.checkValidity()) {
-    console.log("GREAT!");
+    alert("Great! Your data was submitted to the server!");
   } else {
     event.preventDefault();
     validateFormFields();
