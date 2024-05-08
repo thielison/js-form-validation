@@ -146,6 +146,18 @@ const validateFormFields = () => {
   }
 };
 
+const resetForm = () => {
+  form.reset(); // Clear all input fields
+  form.classList.remove("submitted"); // Remove submit class from the form
+
+  // Remove error messages from all inputs
+  const spanElements = document.querySelectorAll("span");
+  spanElements.forEach((element) => {
+    element.textContent = "";
+    element.classList.remove("error");
+  });
+};
+
 email.addEventListener("focusout", () => {
   // Each time the user types something, we check if the
   // email form field is valid.
@@ -190,17 +202,8 @@ form.addEventListener("submit", (event) => {
   if (!form.checkValidity()) {
     validateFormFields();
   } else {
-    // Submit form
+    // Submit and reset form
     alert("Great! Your data was submitted to the server!");
-
-    form.reset(); // Clear all input fields
-    form.classList.remove("submitted"); // Remove submit class from the form
-
-    // Remove error messages from all inputs
-    const spanElements = document.querySelectorAll("span");
-    spanElements.forEach((element) => {
-      element.textContent = "";
-      element.classList.remove("error");
-    });
+    resetForm();
   }
 });
